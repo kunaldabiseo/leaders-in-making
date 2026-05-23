@@ -1,0 +1,3210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leaders in Making — Career Counselling, Coaching & Certification</title>
+<meta name="description" content="A premium career counselling and coaching practice led by Dr. Sunita Tank — guiding students, parents, professionals and institutions for over two decades.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+/* ============================================================
+   LEADERS IN MAKING — PREMIUM LANDING
+   Palette: logo triangles (yellow / teal / pink) + legacy #0498BD
+   Type: Sora display + Inter body (clean, modern, no italic)
+   ============================================================ */
+
+:root{
+  /* Brand — locked palette */
+  --brand: #0498BD;
+  --brand-deep: #035A95;
+  --brand-soft: #E8F6F9;
+  --brand-grad: linear-gradient(to right, #035A95 0%, #0498BD 100%);
+  --brand-grad-soft: linear-gradient(135deg, #035A95 0%, #0498BD 60%, #8CD2CB 100%);
+
+  --yellow: #F6DD6D;
+  --teal: #8CD2CB;
+  --pink: #DF80B4;
+
+  /* "Ink" remapped to brand-blue family (no more navy/black solids) */
+  --ink: #035A95;
+  --ink-2: #024C82;
+  --ink-3: #0A6CA0;
+  --ink-soft: #3A6E92;
+  --ink-mute: #6B8FA8;
+
+  /* Surface */
+  --paper: #FFFFFF;
+  --cream: #F7F4EE;
+  --cream-2: #FAF8F2;
+
+  --line: rgba(3,90,149,0.12);
+  --line-soft: rgba(3,90,149,0.07);
+  --line-light: rgba(255,255,255,0.12);
+
+  /* Type */
+  --f-display: "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --f-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Layout */
+  --container: 1320px;
+  --pad-x: clamp(20px, 4vw, 56px);
+
+  /* Radius */
+  --r-sm: 10px;
+  --r: 18px;
+  --r-lg: 24px;
+  --r-xl: 36px;
+
+  /* Shadow */
+  --sh-1: 0 1px 2px rgba(0,0,0,0.04), 0 1px 1px rgba(0,0,0,0.03);
+  --sh-2: 0 8px 24px rgba(3,90,149,0.10), 0 2px 6px rgba(0,0,0,0.05);
+  --sh-3: 0 24px 60px -12px rgba(3,90,149,0.22), 0 8px 16px -6px rgba(0,0,0,0.10);
+  --sh-4: 0 40px 100px -24px rgba(3,90,149,0.35);
+
+  /* Easing */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset */
+*,*::before,*::after{ box-sizing: border-box; }
+*{ margin: 0; padding: 0; }
+html{ scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body{
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img{ max-width: 100%; display: block; }
+button{ font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+input,select,textarea{ font: inherit; color: inherit; }
+a{ color: inherit; text-decoration: none; }
+
+.container{ max-width: var(--container); margin: 0 auto; padding: 0 var(--pad-x); }
+
+/* Type */
+.eyebrow{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before{
+  content: "";
+  width: 28px; height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+.eyebrow.light{ color: rgba(255,255,255,0.6); }
+.eyebrow.gold{ color: var(--yellow); }
+
+h1,h2,h3,h4{
+  font-family: var(--f-display);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+h2{ font-size: clamp(34px, 5vw, 64px); font-weight: 700; color: #1a1a1a;}
+h3{ font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; }
+
+p{ color: #292b2c; }
+h3{color: #292f33;}
+.lead{ font-size: 18px; line-height: 1.65; color: var(--ink-soft); }
+
+/* Buttons */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-family: var(--f-body);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+  transition: all 0.4s var(--ease-out);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn svg{ width: 16px; height: 16px; transition: transform 0.4s var(--ease-out); }
+.btn:hover svg{ transform: translateX(4px); }
+
+.btn-primary{ background: var(--brand-grad); color: #fff; }
+.btn-primary:hover{ filter: brightness(1.08); transform: translateY(-2px); box-shadow: var(--sh-3); }
+
+.btn-brand{ background: var(--brand); color: #fff; }
+.btn-brand:hover{ background: var(--brand-deep); transform: translateY(-2px); box-shadow: 0 16px 40px -8px rgba(4,152,189,0.45); }
+
+.btn-yellow{ background: var(--yellow); color: var(--ink); }
+.btn-yellow:hover{ filter: brightness(1.06); transform: translateY(-2px); box-shadow: 0 16px 40px -8px rgba(246,221,109,0.55); }
+
+.btn-ghost{ background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover{ background: var(--brand-grad); color: #fff; border-color: transparent; }
+
+.btn-glass{
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.btn-glass:hover{ background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.3); }
+
+.btn-light{ background: #fff; color: var(--ink); }
+.btn-light:hover{ background: var(--yellow); transform: translateY(-2px); }
+
+/* Reveal */
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+[data-reveal].in{ opacity: 1; transform: none; }
+
+/* ============================================================
+   TOPBAR + NAV
+   ============================================================ */
+.topbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
+  padding: 8px 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.4s var(--ease);
+}
+.topbar-inner{
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-left{ display: flex; gap: 24px; align-items: center; }
+.topbar-left .dot{
+  display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--yellow); margin-right: 8px; vertical-align: middle;
+  box-shadow: 0 0 12px rgba(246,221,109,0.6);
+}
+.topbar-right{ display: flex; gap: 22px; align-items: center; }
+.topbar a{ transition: color 0.3s var(--ease); }
+.topbar a:hover{ color: var(--yellow); }
+@media (max-width: 768px){
+  .topbar .hide-mobile{ display: none; }
+}
+
+#nav{
+  position: fixed;
+  top: 36px; left: 0; right: 0;
+  z-index: 50;
+  padding: 18px 0;
+  background: transparent;
+  transition: all 0.5s var(--ease);
+}
+#nav.scrolled{
+  top: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.4);
+}
+.nav-inner{ display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.brand-logo{
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.brand-logo img{
+  height: 44px; width: auto;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+  transition: transform 0.4s var(--ease-out);
+}
+.brand-logo:hover img{ transform: scale(1.05); }
+
+.nav-links{
+  display: flex; gap: 4px; align-items: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 999px;
+  padding: 6px;
+}
+.nav-links a{
+  position: relative;
+  padding: 10px 18px;
+  border-radius: 999px;
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s var(--ease);
+}
+.nav-links a:hover{ color: #fff; background: rgba(255,255,255,0.08); }
+.nav-links a.active{ background: rgba(255,255,255,0.14); color: #fff; }
+
+.nav-cta{ display: flex; align-items: center; gap: 12px; }
+.nav-cta .btn{ padding: 12px 22px; font-size: 14px; }
+
+.menu-toggle{
+  display: none;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  align-items: center; justify-content: center;
+  color: #fff;
+}
+.menu-toggle svg{ width: 20px; height: 20px; }
+
+@media (max-width: 1024px){
+  .nav-links{ display: none; }
+  .menu-toggle{ display: inline-flex; }
+  .nav-cta .btn{ display: none; }
+}
+
+/* Mobile drawer */
+#mobile-drawer{
+  position: fixed; inset: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.98);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.5s var(--ease);
+}
+#mobile-drawer.open{ opacity: 1; pointer-events: auto; }
+.drawer-inner{
+  height: 100%;
+  display: flex; flex-direction: column;
+  padding: 28px var(--pad-x);
+}
+.drawer-top{ display: flex; justify-content: space-between; align-items: center; }
+.drawer-close{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.10);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff;
+}
+.drawer-links{
+  flex: 1;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.drawer-links a{
+  font-family: var(--f-display);
+  font-size: clamp(36px, 8vw, 56px);
+  font-weight: 600;
+  color: #fff;
+  padding: 8px 0;
+  display: inline-block;
+  letter-spacing: -0.02em;
+  transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.drawer-links a:hover{ color: var(--yellow); transform: translateX(8px); }
+.drawer-foot{
+  display: flex; flex-direction: column; gap: 14px;
+  padding-bottom: 24px;
+}
+.drawer-foot .btn{ justify-content: center; }
+.drawer-meta{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  display: flex; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 18px;
+}
+
+/* ============================================================
+   HERO — CINEMATIC DARK
+   ============================================================ */
+.hero{
+  position: relative;
+  min-height: 100vh;
+  padding: 180px 0 120px;
+  color: #fff;
+  overflow: hidden;
+  background: var(--brand-deep);
+  isolation: isolate;
+}
+.hero-bg{
+  position: absolute; inset: 0;
+  z-index: 0;
+  background:
+    url("https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
+  transform: scale(1.05);
+  animation: heroZoom 20s var(--ease-out) infinite alternate;
+}
+@keyframes heroZoom{
+  0%{ transform: scale(1.05); }
+  100%{ transform: scale(1.12); }
+}
+.hero-overlay{
+  position: absolute; inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.78) 40%, rgba(0,0,0,0.92) 100%),
+    radial-gradient(circle at 20% 30%, rgba(4,152,189,0.22) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(246,221,109,0.10) 0%, transparent 55%);
+}
+.hero-grid{
+  position: absolute; inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+.hero-vignette{
+  position: absolute; inset: 0;
+  z-index: 3;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.5) 100%);
+  pointer-events: none;
+}
+
+/* Floating brand triangles */
+.tri{
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.7;
+  filter: blur(0.5px) drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+}
+.tri-1{ top: 18%; left: 8%; width: 56px; animation: float1 14s ease-in-out infinite; }
+.tri-2{ top: 65%; right: 12%; width: 72px; animation: float2 18s ease-in-out infinite; }
+.tri-3{ bottom: 18%; left: 14%; width: 44px; animation: float3 16s ease-in-out infinite; }
+@keyframes float1{ 0%,100%{ transform: translate(0,0) rotate(0deg); } 50%{ transform: translate(20px,-30px) rotate(15deg); } }
+@keyframes float2{ 0%,100%{ transform: translate(0,0) rotate(0deg); } 50%{ transform: translate(-30px,20px) rotate(-12deg); } }
+@keyframes float3{ 0%,100%{ transform: translate(0,0) rotate(0deg); } 50%{ transform: translate(15px,-20px) rotate(10deg); } }
+
+/* Massive faded background word */
+.hero-mega-word{
+  position: absolute;
+  z-index: 4;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-size: clamp(180px, 28vw, 480px);
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.08);
+  text-stroke: 1px rgba(255,255,255,0.08);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hero-inner{
+  position: relative;
+  z-index: 10;
+}
+.hero-grid-layout{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-eyebrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 999px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: 32px;
+}
+.hero-eyebrow .pulse{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 0 0 rgba(246,221,109,0.6);
+  animation: pulse 2s var(--ease) infinite;
+}
+@keyframes pulse{
+  0%{ box-shadow: 0 0 0 0 rgba(246,221,109,0.7); }
+  70%{ box-shadow: 0 0 0 10px rgba(246,221,109,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(246,221,109,0); }
+}
+
+.hero h1{
+  font-family: var(--f-display);
+  font-size: clamp(36px, 5.2vw, 76px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin-bottom: 24px;
+}
+.hero h1 .gold{
+  color: var(--yellow);
+  display: inline-block;
+}
+.hero h1 .accent{
+  display: inline-block;
+  position: relative;
+}
+.hero h1 .accent::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 8px;
+  height: 8px;
+  background: linear-gradient(90deg, var(--yellow) 0%, var(--pink) 50%, var(--teal) 100%);
+  opacity: 0.85;
+  border-radius: 4px;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: drawLine 1.4s var(--ease-out) 0.8s forwards;
+}
+@keyframes drawLine{
+  to{ transform: scaleX(1); }
+}
+
+.hero-sub{
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.65;
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  margin-bottom: 40px;
+}
+.hero-sub strong{ color: #fff; font-weight: 600; }
+
+.hero-cta{ display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Right side — founder card stack */
+.hero-side{
+  position: relative;
+}
+.founder-card{
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--sh-4), 0 0 80px -20px rgba(4,152,189,0.3);
+  transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+  transition: transform 0.6s var(--ease-out);
+}
+.founder-card:hover{ transform: perspective(1200px) rotateY(-2deg) rotateX(1deg) translateY(-6px); }
+.founder-card img{
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: center top;
+}
+.founder-card .quote-strip{
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 24px 28px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.95) 100%);
+  color: #fff;
+}
+.founder-card .quote-strip .q{
+  font-family: var(--f-display);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.founder-card .quote-strip .by{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.founder-card .quote-strip .by .div{ color: var(--yellow); margin: 0 6px; }
+
+/* Stat float */
+.stat-float{
+  position: absolute;
+  top: -24px; right: -24px;
+  background: var(--brand-grad);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--r);
+  padding: 18px 22px;
+  box-shadow: var(--sh-4);
+  z-index: 2;
+  animation: floatY 6s ease-in-out infinite;
+}
+.stat-float .num{
+  font-family: var(--f-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-float .num sup{ color: var(--yellow); font-size: 0.6em; }
+.stat-float .lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+@keyframes floatY{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-8px); }
+}
+@media (min-width:992px){
+  .brand-logo img{
+    height: 80px!important;
+  }
+}
+@media (max-width:992px){
+  .brand-logo img{
+    height: 61px!important;
+  }
+}
+
+/* Badge float */
+.badge-float{
+  position: absolute;
+  bottom: 60px; left: -40px;
+  background: #fff;
+  border-radius: var(--r);
+  padding: 16px 20px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  box-shadow: var(--sh-4);
+  z-index: 3;
+  max-width: 280px;
+  animation: floatY 8s ease-in-out infinite reverse;
+}
+.badge-float .ic{
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--brand-grad);
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.badge-float .ic svg{ width: 18px; height: 18px; color: var(--yellow); }
+.badge-float .t{
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.badge-float .s{
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  line-height: 1.4;
+}
+
+/* Scroll cue */
+.scroll-cue{
+  position: absolute;
+  bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 10px;
+  color: rgba(255,255,255,0.55);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.scroll-cue .line{
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.5));
+  animation: scrollLine 2s var(--ease) infinite;
+}
+@keyframes scrollLine{
+  0%{ transform: scaleY(0); transform-origin: top; }
+  50%{ transform: scaleY(1); transform-origin: top; }
+  51%{ transform: scaleY(1); transform-origin: bottom; }
+  100%{ transform: scaleY(0); transform-origin: bottom; }
+}
+
+@media (max-width: 1024px){
+  .hero{ padding: 140px 0 80px; min-height: auto; }
+  .hero-grid-layout{ grid-template-columns: 1fr; gap: 60px; }
+  .hero-mega-word{ font-size: clamp(140px, 30vw, 240px); }
+  .founder-card img{ height: 420px; }
+  .stat-float{ top: -16px; right: -8px; padding: 14px 18px; }
+  .stat-float .num{ font-size: 28px; }
+  .badge-float{ left: -8px; bottom: 30px; }
+}
+@media (max-width: 640px){
+  .hero{ padding: 130px 0 60px; }
+  .hero h1{ font-size: clamp(32px, 8.5vw, 46px); }
+  .badge-float{ position: relative; left: 0; bottom: 0; margin-top: 16px; }
+  .scroll-cue{ display: none; }
+}
+
+/* ============================================================
+   TRUST STRIP
+   ============================================================ */
+.trust-strip{
+  position: relative;
+  background: var(--brand-grad);
+  color: rgba(255,255,255,0.92);
+  padding: 36px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.trust-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+.trust-item{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.trust-item .num{
+  font-family: var(--f-display);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--yellow);
+  line-height: 1;
+}
+.trust-item .lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+}
+@media (max-width: 768px){
+  .trust-grid{ grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .trust-item .num{ font-size: 30px; }
+}
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+.sec{ padding: clamp(80px, 10vw, 140px) 0; position: relative; }
+.sec-cream{ background: var(--cream); }
+.sec-dark{ background: var(--brand-grad); color: #fff; }
+.sec-dark h2, .sec-dark h3, .sec-dark h4{ color: #fff; }
+.sec-dark p{ color: rgba(255,255,255,0.7); }
+
+.sec-head{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.sec-head .right{
+  font-size: 15px;
+  line-height: 1.65;
+  color: #232c31;
+}
+.sec-dark .sec-head .right{ color: rgba(255,255,255,0.65); }
+.sec-head h2{ margin-top: 18px; }
+@media (max-width: 900px){
+  .sec-head{ grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ============================================================
+   AUDIENCE TABS — "Tell us who's reading"
+   ============================================================ */
+.audience{
+  background: var(--cream);
+}
+.tabs-bar{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.tab{
+  padding: 22px 24px;
+  border-radius: var(--r);
+  background: #fff;
+  border: 1px solid var(--line);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+.tab .tnum{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 10px;
+  display: block;
+}
+.tab .ttitle{
+  font-family: var(--f-display);
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.tab .thint{
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+.tab:hover{ transform: translateY(-3px); box-shadow: var(--sh-2); border-color: rgba(4,152,189,0.3); }
+.tab.active{
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.tab.active .tnum,
+.tab.active .thint{ color: rgba(255,255,255,0.65); }
+.tab.active .ttitle{ color: #fff; }
+.tab.active::before{
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--yellow);
+}
+@media (max-width: 900px){
+  .tabs-bar{ grid-template-columns: repeat(2, 1fr); }
+}
+
+.panel-wrap{
+  position: relative;
+  background: #fff;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--sh-2);
+  min-height: 540px;
+}
+.panel{
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  min-height: 540px;
+}
+.panel.active{ display: grid; animation: panelIn 0.6s var(--ease-out); }
+@keyframes panelIn{
+  from{ opacity: 0; transform: translateY(16px); }
+  to{ opacity: 1; transform: none; }
+}
+.panel-left{
+  padding: clamp(28px, 4vw, 48px);
+}
+.panel-left .label{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.panel-left .label::before{
+  content: "";
+  width: 28px; height: 1px;
+  background: var(--brand);
+}
+.panel-left h3{
+  font-family: var(--f-display);
+  font-size: clamp(26px, 2.4vw, 32px);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.panel-left .p{
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+  line-height: 1.65;
+}
+.qa-list{
+  margin-bottom: 28px;
+  border-top: 1px solid var(--line-soft);
+}
+.qa-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.qa-row .q{
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.qa-row .a{
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.qa-row .a::before{
+  content: "→ ";
+  color: var(--brand);
+}
+.panel-cta{ display: flex; gap: 12px; flex-wrap: wrap; }
+
+.panel-right{
+  position: relative;
+  background: var(--brand-grad);
+  overflow: hidden;
+  min-height: 540px;
+}
+.panel-right img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+.panel-right::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);
+}
+.panel-bigword{
+  position: absolute;
+  top: 20px; left: 24px;
+  font-family: var(--f-display);
+  font-size: clamp(60px, 7vw, 96px);
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.18);
+  z-index: 2;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+}
+.panel-bullets{
+  position: absolute;
+  bottom: 28px; left: 28px; right: 28px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 18px;
+}
+.panel-bullets li{
+  list-style: none;
+  color: rgba(255,255,255,0.92);
+  font-size: 14px;
+  font-weight: 500;
+  padding-left: 16px;
+  position: relative;
+}
+.panel-bullets li::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 9px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--yellow);
+}
+
+@media (max-width: 900px){
+  .panel.active{ grid-template-columns: 1fr; }
+  .panel-right{ min-height: 340px; }
+  .qa-row{ grid-template-columns: 1fr; gap: 6px; }
+}
+
+/* ============================================================
+   SERVICES — PINNED HORIZONTAL SCROLL
+   ============================================================ */
+.services{
+  background: var(--paper);
+  position: relative;
+}
+.services-pin{
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.services-track{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--pad-x);
+  gap: 28px;
+  will-change: transform;
+}
+.svc-intro{
+  flex-shrink: 0;
+  width: 460px;
+  padding-right: 32px;
+}
+.svc-intro .eyebrow{ color: var(--brand); margin-bottom: 18px; }
+.svc-intro h2{ margin-bottom: 20px; }
+.svc-intro p{ font-size: 16px; }
+
+.svc-card{
+  flex-shrink: 0;
+  width: 460px;
+  height: 580px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  position: relative;
+  background: var(--brand-grad);
+  color: #fff;
+  box-shadow: var(--sh-3);
+  transition: transform 0.4s var(--ease-out);
+}
+.svc-card:hover{ transform: translateY(-6px); }
+.svc-card img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+.svc-card::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.85) 100%);
+}
+.svc-card .roman{
+  position: absolute;
+  top: 24px; right: 28px;
+  font-family: var(--f-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  z-index: 2;
+  letter-spacing: 0.1em;
+}
+.svc-card .content{
+  position: absolute;
+  bottom: 28px; left: 28px; right: 28px;
+  z-index: 2;
+}
+.svc-card .tag{
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 16px;
+}
+.svc-card h3{
+  font-family: var(--f-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.svc-card .desc{
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 20px;
+}
+.svc-card .pills{
+  display: flex; gap: 6px; flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.svc-card .pills span{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.9);
+}
+.svc-card .explore{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--yellow);
+  transition: gap 0.3s var(--ease-out);
+}
+.svc-card:hover .explore{ gap: 14px; }
+.svc-card .explore svg{ width: 14px; height: 14px; }
+
+/* Progress bar + counter */
+.svc-progress-wrap{
+  position: absolute;
+  bottom: 32px; left: 0; right: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 var(--pad-x);
+}
+.svc-progress{
+  flex: 1;
+  height: 2px;
+  background: var(--line);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.svc-progress .bar{
+  width: 25%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand), var(--yellow));
+  transition: width 0.2s linear;
+}
+.svc-counter{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 1024px){
+  .services-pin{ height: auto; padding: 80px 0; }
+  .services-track{
+    flex-direction: column;
+    padding: 0 var(--pad-x);
+    gap: 20px;
+  }
+  .svc-intro, .svc-card{ width: 100%; max-width: 540px; height: auto; }
+  .svc-card{ min-height: 460px; }
+  .svc-progress-wrap{ display: none; }
+}
+
+/* ============================================================
+   FOUNDER
+   ============================================================ */
+.founder-sec{ background: var(--cream-2); }
+.founder-grid{
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 64px;
+  align-items: center;
+}
+.founder-img-wrap{
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--sh-3);
+}
+.founder-img-wrap img{
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  object-position: center top;
+}
+.founder-img-wrap .creds{
+  position: absolute;
+  bottom: 24px; left: 24px; right: 24px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-radius: var(--r);
+  padding: 18px 22px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.founder-img-wrap .creds .c{
+  font-size: 11px;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+.founder-img-wrap .creds .c strong{
+  display: block;
+  color: var(--ink);
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.founder-body h2{ margin-bottom: 24px; }
+.founder-body .pull{
+  font-family: var(--f-display);
+  font-size: clamp(22px, 2vw, 26px);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.4;
+  padding: 24px 0 24px 24px;
+  border-left: 3px solid var(--yellow);
+  margin: 28px 0;
+  letter-spacing: -0.01em;
+}
+.founder-body p{ margin-bottom: 18px; line-height: 1.7; }
+.founder-body .sig{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.founder-body .sig strong{ color: var(--brand); }
+
+@media (max-width: 900px){
+  .founder-grid{ grid-template-columns: 1fr; gap: 40px; }
+  .founder-img-wrap img{ height: 460px; }
+}
+
+/* ============================================================
+   METHOD
+   ============================================================ */
+.method{ background: var(--paper); }
+.method-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+.step{
+  position: relative;
+  padding: 32px 28px;
+  border-radius: var(--r);
+  background: var(--cream);
+  border: 1px solid var(--line);
+  transition: all 0.5s var(--ease-out);
+}
+.step:hover{ transform: translateY(-6px); border-color: var(--brand); box-shadow: var(--sh-2); }
+.step .stepnum{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--brand);
+  margin-bottom: 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.step .duration{
+  font-size: 10px;
+  color: var(--ink-mute);
+}
+.step h3{
+  font-family: var(--f-display);
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.step p{
+  font-size: 14px;
+  line-height: 1.55;
+}
+@media (max-width: 900px){
+  .method-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px){
+  .method-grid{ grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   TESTIMONIALS — PREMIUM SLIDER
+   ============================================================ */
+.tests{
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.tests::before{
+  content: "";
+  position: absolute;
+  top: -10%; left: -10%;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(4,152,189,0.10) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: 0;
+}
+.tests::after{
+  content: "";
+  position: absolute;
+  bottom: -10%; right: -10%;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246,221,109,0.10) 0%, transparent 70%);
+  filter: blur(60px);
+  z-index: 0;
+}
+.tests .container{ position: relative; z-index: 1; }
+
+.tests-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.tests-head .left h2{ margin-top: 18px; }
+.tests-head .right{ display: flex; gap: 12px; align-items: center; }
+.slider-btn{
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--line);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--ink);
+  transition: all 0.3s var(--ease-out);
+  box-shadow: var(--sh-1);
+}
+.slider-btn:hover{ background: var(--ink); color: #fff; border-color: var(--ink); transform: translateY(-2px); box-shadow: var(--sh-2); }
+.slider-btn:disabled{ opacity: 0.4; cursor: not-allowed; }
+.slider-btn svg{ width: 18px; height: 18px; }
+
+.tests-slider{
+  position: relative;
+  overflow: visible;
+}
+.tests-track{
+  display: flex;
+  gap: 28px;
+  transition: transform 0.7s var(--ease-out);
+  will-change: transform;
+}
+.t-card{
+  flex-shrink: 0;
+  width: calc(33.333% - 19px);
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 36px 32px 32px;
+  position: relative;
+  transition: all 0.5s var(--ease-out);
+  /* Clipped corner detail */
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 28px 100%, 0 calc(100% - 28px));
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.t-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px -10px rgba(0,0,0,0.18);
+}
+.t-card .quote-mark{
+  position: absolute;
+  top: 24px; right: 32px;
+  font-family: var(--f-display);
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--brand-soft);
+  line-height: 0.6;
+  user-select: none;
+}
+.t-card .stars{
+  display: flex;
+  gap: 3px;
+  margin-bottom: 22px;
+}
+.t-card .stars svg{ width: 14px; height: 14px; color: var(--yellow); }
+.t-card .q{
+  font-family: var(--f-display);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #191b1d;
+  margin-bottom: 32px;
+  letter-spacing: -0.005em;
+  min-height: 130px;
+}
+.t-card .person{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-soft);
+}
+.t-card .avatar{
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--yellow);
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+}
+.t-card .person .meta{ min-width: 0; }
+.t-card .person .name{
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.t-card .person .role{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  line-height: 1.4;
+}
+
+.tests-dots{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+.tdot{
+  width: 32px; height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  transition: background 0.3s var(--ease);
+  cursor: pointer;
+}
+.tdot.active{ background: var(--ink); }
+
+@media (max-width: 1024px){
+  .t-card{ width: calc(50% - 14px); }
+}
+@media (max-width: 640px){
+  .t-card{ width: calc(100% - 0px); }
+  .t-card .q{ font-size: 16px; min-height: auto; }
+}
+
+/* ============================================================
+   PARTNERS / LOGO MARQUEE — PREMIUM
+   ============================================================ */
+.partners{
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+.partners::before{
+  content: "";
+  position: absolute;
+  top: 20%; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(4,152,189,0.08) 0%, transparent 60%);
+  filter: blur(60px);
+  z-index: 0;
+}
+.partners .container{ position: relative; z-index: 1; }
+.partners-head{
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 72px;
+}
+.partners-head .eyebrow{ justify-content: center; }
+.partners-head .eyebrow::before{ display: none; }
+.partners-head h2{ margin-top: 18px; }
+.partners-head p{ margin-top: 18px; font-size: 16px; }
+
+.marquee-wrap{
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+.marquee{
+  display: flex;
+  gap: 24px;
+  animation: marquee 36s linear infinite;
+  width: max-content;
+}
+.marquee:hover{ animation-play-state: paused; }
+@keyframes marquee{
+  to{ transform: translateX(-50%); }
+}
+
+.logo-card{
+  flex-shrink: 0;
+  width: 220px;
+  height: 130px;
+  background: #fff;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  position: relative;
+  transition: all 0.5s var(--ease-out);
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.logo-card::before{
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(4,152,189,0.04), transparent 50%, rgba(246,221,109,0.04));
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+.logo-card:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px -10px rgba(0,0,0,0.15); }
+.logo-card:hover::before{ opacity: 1; }
+.logo-card img{
+  max-width: 100%;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  filter: grayscale(40%);
+  opacity: 0.85;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  z-index: 1;
+}
+.logo-card:hover img{ filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+.logo-card .txt-fallback{
+  font-family: var(--f-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: -0.01em;
+  position: relative; z-index: 1;
+}
+
+/* ============================================================
+   CERTIFICATIONS
+   ============================================================ */
+.certs{ background: var(--cream); position: relative; overflow: hidden; }
+.certs::before{
+  content: "";
+  position: absolute;
+  top: -120px; right: -80px;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(140,210,203,0.30) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.certs::after{
+  content: "";
+  position: absolute;
+  bottom: -100px; left: -80px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(246,221,109,0.28) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.certs > .container{ position: relative; z-index: 2; }
+
+.certs-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+.cert{
+  position: relative;
+  border-radius: var(--r-lg);
+  background: #fff;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+}
+.cert:hover{ transform: translateY(-8px); box-shadow: var(--sh-4); }
+
+.cert-media{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--brand-grad);
+}
+.cert-media img{
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s var(--ease-out);
+}
+.cert:hover .cert-media img{ transform: scale(1.04); }
+.cert-media::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.cert-media .badge{
+  position: absolute;
+  top: 18px; left: 18px;
+  z-index: 2;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.95);
+  color: var(--brand-deep);
+  padding: 8px 14px;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+  font-weight: 600;
+}
+.cert-media .pill{
+  position: absolute;
+  bottom: 18px; right: 18px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.cert-media .pill::before{
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--yellow);
+}
+
+.cert-body{
+  padding: 32px 30px 34px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cert-body h3{
+  font-family: var(--f-display);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.cert-body p{ font-size: 14px; line-height: 1.65; margin-bottom: 22px; color: var(--ink-soft); }
+.cert-body .specs{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-soft);
+  margin-top: auto;
+}
+.cert-body .specs .s strong{
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.cert-body .specs .s span{ font-size: 14px; color: var(--ink); font-weight: 600; }
+.cert-body .cert-cta{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.3s var(--ease-out);
+}
+.cert-body .cert-cta:hover{ gap: 14px; }
+.cert-body .cert-cta svg{ width: 14px; height: 14px; }
+
+@media (max-width: 900px){
+  .certs-grid{ grid-template-columns: 1fr; gap: 24px; }
+  .cert-body{ padding: 26px 24px 28px; }
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{ background: var(--paper); }
+.faq-grid{ max-width: 880px; margin: 0 auto; }
+.faq-item{
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+}
+.faq-item summary{
+  cursor: pointer;
+  padding: 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--f-display);
+  font-size: 19px;
+  font-weight: 500;
+  color: #151516;
+  list-style: none;
+  letter-spacing: -0.01em;
+}
+.faq-item summary::-webkit-details-marker{ display: none; }
+.faq-item .ic{
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.4s var(--ease-out);
+}
+.faq-item .ic svg{ width: 14px; height: 14px; transition: transform 0.4s var(--ease-out); }
+.faq-item[open] .ic{ background: var(--ink); color: var(--yellow); }
+.faq-item[open] .ic svg{ transform: rotate(45deg); }
+.faq-body{
+  padding: 0 0 28px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 760px;
+  font-size: 15px;
+}
+
+/* ============================================================
+   LEAD FORM — DARK + DYNAMIC
+   ============================================================ */
+.lead{ background: var(--brand-grad); color: #fff; position: relative; overflow: hidden; }
+.lead::before{
+  content: "";
+  position: absolute;
+  top: -20%; right: -20%;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(4,152,189,0.18) 0%, transparent 65%);
+  filter: blur(80px);
+}
+.lead::after{
+  content: "";
+  position: absolute;
+  bottom: -20%; left: -20%;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246,221,109,0.12) 0%, transparent 65%);
+  filter: blur(80px);
+}
+.lead .container{ position: relative; z-index: 1; }
+.lead-grid{
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 64px;
+  align-items: start;
+}
+.lead-left h2{
+  color: #fff;
+  margin-top: 18px;
+  margin-bottom: 28px;
+}
+.lead-left h2 .accent{ color: var(--yellow); }
+.lead-left p{ color: rgba(255,255,255,0.7); margin-bottom: 36px; line-height: 1.7; }
+.lead-meta{
+  display: grid;
+  gap: 22px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+}
+.lead-meta .m{
+  display: flex; gap: 16px;
+}
+.lead-meta .m .ic{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--yellow);
+  flex-shrink: 0;
+}
+.lead-meta .m .ic svg{ width: 18px; height: 18px; }
+.lead-meta .m .lbl{
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 4px;
+}
+.lead-meta .m .val{ font-size: 16px; font-weight: 500; color: #fff; }
+.lead-meta .m .val a{ transition: color 0.3s var(--ease); }
+.lead-meta .m .val a:hover{ color: var(--yellow); }
+
+.form-card{
+  background: rgb(6 6 6 / 41%);
+  border: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--r-lg);
+  padding: 36px;
+  position: relative;
+}
+.form-progress{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+.form-progress .bar{
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,0.10);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.form-progress .bar-fill{
+  width: 33%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand), var(--yellow));
+  transition: width 0.5s var(--ease-out);
+}
+
+.role-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.role-pill{
+  padding: 14px 16px;
+  border-radius: var(--r-sm);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s var(--ease-out);
+}
+.role-pill .dot{
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  flex-shrink: 0;
+}
+.role-pill:hover{ background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); }
+.role-pill.active{
+  background: rgba(246,221,109,0.10);
+  border-color: var(--yellow);
+  color: #fff;
+}
+.role-pill.active .dot{ background: var(--yellow); box-shadow: 0 0 8px var(--yellow); }
+
+.field-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.field{ position: relative; margin-bottom: 16px; }
+.field label{
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 8px;
+}
+.field input,
+.field textarea,
+.field select{
+  width: 100%;
+  padding: 14px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s var(--ease);
+  font-family: inherit;
+}
+.field input::placeholder,
+.field textarea::placeholder{ color: rgba(255,255,255,0.35); }
+.field input:focus,
+.field textarea:focus,
+.field select:focus{ border-color: var(--yellow); }
+.field textarea{ resize: vertical; min-height: 80px; }
+
+.conditional{
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s var(--ease-out), opacity 0.4s var(--ease-out);
+}
+.conditional.show{
+  max-height: 400px;
+  opacity: 1;
+  margin-bottom: 6px;
+}
+.cond-hint{
+  font-size: 12px;
+  color: rgba(246,221,109,0.85);
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: rgba(246,221,109,0.06);
+  border-left: 2px solid var(--yellow);
+  border-radius: 4px;
+}
+
+.form-foot{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.form-foot .hint{
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  max-width: 260px;
+  line-height: 1.5;
+}
+
+.form-success{
+  display: none;
+  text-align: center;
+  padding: 30px 20px;
+}
+.form-success.show{ display: block; animation: panelIn 0.6s var(--ease-out); }
+.form-success .check{
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--yellow);
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+.form-success .check svg{ width: 28px; height: 28px; stroke-width: 3; }
+.form-success h3{
+  font-family: var(--f-display);
+  font-size: 26px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.form-success p{ color: rgba(255,255,255,0.7); margin-bottom: 18px; }
+
+@media (max-width: 900px){
+  .lead-grid{ grid-template-columns: 1fr; gap: 40px; }
+  .field-row{ grid-template-columns: 1fr; }
+  .form-card{ padding: 28px 22px; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer.foot{
+  background: #050C13;
+  color: rgba(255,255,255,0.6);
+  padding: 80px 0 32px;
+}
+.foot-grid{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.foot-brand .brand-logo{ margin-bottom: 24px; }
+.foot-brand .brand-logo img{ height: 48px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4)); }
+.foot-brand p{ font-size: 13px; line-height: 1.7; max-width: 320px; color: rgba(255,255,255,0.55); }
+.foot-col h4{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 22px;
+  font-weight: 500;
+}
+.foot-col ul{ list-style: none; display: grid; gap: 12px; }
+.foot-col a{
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.3s var(--ease);
+}
+.foot-col a:hover{ color: var(--yellow); }
+
+.foot-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.socials{ display: flex; gap: 10px; }
+.socials a{
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  display: inline-flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.7);
+  transition: all 0.3s var(--ease);
+}
+.socials a:hover{ background: var(--yellow); color: var(--ink); border-color: var(--yellow); }
+.socials a svg{ width: 14px; height: 14px; }
+
+@media (max-width: 900px){
+  .foot-grid{ grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 540px){
+  .foot-grid{ grid-template-columns: 1fr; }
+}
+
+/* Floating WhatsApp */
+.wa-float{
+  position: fixed;
+  bottom: 24px; right: 24px;
+  z-index: 40;
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff;
+  box-shadow: 0 10px 30px -6px rgba(37,211,102,0.6);
+  transition: transform 0.3s var(--ease);
+}
+.wa-float:hover{ transform: scale(1.08); }
+.wa-float svg{ width: 26px; height: 26px; }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span><span class="dot"></span>Booking · Jan–Mar 2026 cohort</span>
+        <span class="hide-mobile">Est. 2002 · New Delhi</span>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+919870435599" class="hide-mobile">+91 98704 35599</a>
+        <a href="mailto:info@leadersinmaking.com">info@leadersinmaking.com</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#top" class="brand-logo">
+        <img src="https://leadersinmaking.com/images/LeadersInMaking_logo.svg" alt="Leaders in Making" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span style=&quot;color:#fff;font-family:var(--f-display);font-size:18px;font-weight:600;&quot;>Leaders in Making</span>')">
+      </a>
+
+      <div class="nav-links">
+        <a href="#audience" data-nav>For You</a>
+        <a href="#services" data-nav>Services</a>
+        <a href="#founder" data-nav>Founder</a>
+        <a href="#method" data-nav>Method</a>
+        <a href="#certs" data-nav>Certifications</a>
+        <a href="#faq" data-nav>FAQ</a>
+      </div>
+
+      <div class="nav-cta">
+        <a href="#book" class="btn btn-yellow">Book a Session
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <button class="menu-toggle" id="open-menu" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div id="mobile-drawer" aria-hidden="true">
+  <div class="drawer-inner">
+    <div class="drawer-top">
+      <a href="#top" class="brand-logo"><img src="https://leadersinmaking.com/images/LeadersInMaking_logo.svg" alt="Leaders in Making" style="height:40px"></a>
+      <button class="drawer-close" id="close-menu" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="drawer-links">
+      <a href="#audience">For You</a>
+      <a href="#services">Services</a>
+      <a href="#founder">Founder</a>
+      <a href="#method">Method</a>
+      <a href="#certs">Certifications</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="drawer-foot">
+      <a href="#book" class="btn btn-yellow">Book a Session
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <div class="drawer-meta">
+        <span>Est. 2002</span>
+        <span>New Delhi</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-vignette"></div>
+
+  <!-- Floating brand triangles -->
+  <svg class="tri tri-1" viewBox="0 0 100 100"><polygon points="50,10 90,85 10,85" fill="#F6DD6D"/></svg>
+  <svg class="tri tri-2" viewBox="0 0 100 100"><polygon points="50,10 90,85 10,85" fill="#8CD2CB"/></svg>
+  <svg class="tri tri-3" viewBox="0 0 100 100"><polygon points="50,10 90,85 10,85" fill="#DF80B4"/></svg>
+
+  <!-- Massive faded background word -->
+  <div class="hero-mega-word">Leaders</div>
+
+  <div class="hero-inner container">
+    <div class="hero-grid-layout">
+      <div class="hero-content" data-reveal>
+        <div class="hero-eyebrow">
+          <span class="pulse"></span>
+          <span>Career Counselling · Coaching · Certification</span>
+        </div>
+
+        <h1>
+          We don't build careers.<br>
+          We shape <span class="accent">leaders<span class="gold">.</span></span>
+        </h1>
+
+        <p class="hero-sub">
+          For more than <strong>two decades</strong>, Dr. Sunita Tank and the Leaders in Making team have guided over <strong>10,000 students, parents and professionals</strong> through the quiet decisions that change a life — what to study, who to become, where to lead.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#book" class="btn btn-yellow">Book a Discovery Call
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#audience" class="btn btn-glass">Find your starting point</a>
+        </div>
+      </div>
+
+      <div class="hero-side" data-reveal style="--d:200ms">
+        <div class="founder-card">
+          <img src="https://leadersinmaking.com/images/Slider2.jpg" alt="Dr. Sunita Tank, Founder" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80'">
+          <div class="quote-strip">
+            <div class="q">"All of us are born leaders — if not, can be made one."</div>
+            <div class="by">Dr. Sunita Tank<span class="div">·</span>Founder</div>
+          </div>
+        </div>
+
+        <div class="stat-float">
+          <div class="num">10,000<sup>+</sup></div>
+          <div class="lbl">Lives shaped</div>
+        </div>
+
+        <div class="badge-float">
+          <div class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.2H22l-6 4.4 2.3 7.2L12 16.4 5.7 20.8 8 13.6 2 9.2h7.6z"/></svg>
+          </div>
+          <div>
+            <div class="t">Letter of Appreciation</div>
+            <div class="s">Government of India · National Skill Development Mission</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <div>Scroll</div>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust-strip">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item" data-reveal>
+        <div class="num">10K<sup style="color:var(--yellow);font-size:0.5em;vertical-align:super">+</sup></div>
+        <div class="lbl">Candidates<br>Counselled</div>
+      </div>
+      <div class="trust-item" data-reveal style="--d:80ms">
+        <div class="num">20<sup style="color:var(--yellow);font-size:0.5em;vertical-align:super">+</sup></div>
+        <div class="lbl">Years of<br>Practice</div>
+      </div>
+      <div class="trust-item" data-reveal style="--d:160ms">
+        <div class="num">4.9</div>
+        <div class="lbl">Average<br>Rating</div>
+      </div>
+      <div class="trust-item" data-reveal style="--d:240ms">
+        <div class="num" style="font-size:18px;line-height:1.2">ICF · NABET</div>
+        <div class="lbl">Certified<br>Coach</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE TABS -->
+<section class="sec audience" id="audience">
+  <div class="container">
+    <div class="sec-head">
+      <div data-reveal>
+        <div class="eyebrow">Start where you are</div>
+        <h2>Tell us who's reading.<br>We'll change the page.</h2>
+      </div>
+      <div class="right" data-reveal style="--d:100ms">
+        No two journeys we counsel look alike — and a single CTA can't speak to a Class 10 student and a 38-year-old mid-career professional in the same breath. Pick a starting point and the next 60 seconds become specific to you.
+      </div>
+    </div>
+
+    <div class="tabs-bar" data-reveal>
+      <button class="tab active" data-tab="student">
+        <span class="tnum">01 / 04</span>
+        <div class="ttitle">Student</div>
+        <div class="thint">Class 8–12, UG, PG</div>
+      </button>
+      <button class="tab" data-tab="parent">
+        <span class="tnum">02 / 04</span>
+        <div class="ttitle">Parent</div>
+        <div class="thint">New parents · Teen parents</div>
+      </button>
+      <button class="tab" data-tab="professional">
+        <span class="tnum">03 / 04</span>
+        <div class="ttitle">Professional</div>
+        <div class="thint">Early & mid-career, leaders</div>
+      </button>
+      <button class="tab" data-tab="school">
+        <span class="tnum">04 / 04</span>
+        <div class="ttitle">School / Institution</div>
+        <div class="thint">Workshops · TPO · Programs</div>
+      </button>
+    </div>
+
+    <div class="panel-wrap" data-reveal style="--d:120ms">
+
+      <!-- STUDENT -->
+      <div class="panel active" data-panel="student">
+        <div class="panel-left">
+          <div class="label">Student Advisory</div>
+          <h3>Choose a direction before the world chooses one for you.</h3>
+          <p class="p">Aptitude, interest and personality mapping — followed by an honest, evidence-led conversation about streams, careers and study pathways in India and abroad.</p>
+          <div class="qa-list">
+            <div class="qa-row"><div class="q">"I'm in Class 10 and confused about streams."</div><div class="a">We use a structured aptitude + interest mapping to make the choice obvious, not stressful.</div></div>
+            <div class="qa-row"><div class="q">"I've already taken Science but it doesn't feel right."</div><div class="a">A re-alignment session is built exactly for this — without losing a year.</div></div>
+            <div class="qa-row"><div class="q">"I want to study abroad — where do I begin?"</div><div class="a">Country, course, scholarship eligibility, and a realistic application calendar.</div></div>
+          </div>
+          <div class="panel-cta">
+            <a href="#book" class="btn btn-primary">Plan my next 12 months
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#services" class="btn btn-ghost">See full service</a>
+          </div>
+        </div>
+        <div class="panel-right">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80" alt="Student">
+          <div class="panel-bigword">Student</div>
+          <ul class="panel-bullets">
+            <li>Aptitude & IQ assessment</li>
+            <li>Stream & career mapping</li>
+            <li>College & course shortlist</li>
+            <li>Interview & SOP coaching</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PARENT -->
+      <div class="panel" data-panel="parent">
+        <div class="panel-left">
+          <div class="label">Parent Advisory</div>
+          <h3>Parenting them is hard. Parenting yourself through it, harder.</h3>
+          <p class="p">Practical coaching for the moments that don't come with a manual — the silent teenager, the over-achieving sibling, the career conversation gone wrong.</p>
+          <div class="qa-list">
+            <div class="qa-row"><div class="q">"My teenager has stopped talking to me."</div><div class="a">Most parents we meet say the same thing. We start with you, not them.</div></div>
+            <div class="qa-row"><div class="q">"How do I push without pressuring?"</div><div class="a">There's a science to motivation — we'll teach you the version that actually works.</div></div>
+            <div class="qa-row"><div class="q">"I don't want to repeat my parents' mistakes."</div><div class="a">Then let's be deliberate. That alone puts you ahead of most.</div></div>
+          </div>
+          <div class="panel-cta">
+            <a href="#book" class="btn btn-primary">Talk to a parent coach
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#services" class="btn btn-ghost">See full service</a>
+          </div>
+        </div>
+        <div class="panel-right">
+          <img src="https://images.unsplash.com/photo-1591703335018-21a85d3ad2b3?auto=format&fit=crop&w=1400&q=80" alt="Parent">
+          <div class="panel-bigword">Parent</div>
+          <ul class="panel-bullets">
+            <li>New parent coaching</li>
+            <li>Pre-teen & teen guidance</li>
+            <li>Family communication</li>
+            <li>Boundary & autonomy plans</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROFESSIONAL -->
+      <div class="panel" data-panel="professional">
+        <div class="panel-left">
+          <div class="label">Corporate Coaching</div>
+          <h3>The promotion isn't always the answer. The next chapter is.</h3>
+          <p class="p">Executive coaching for professionals choosing their next role, returning after a break, or quietly rebuilding the version of themselves they want to lead as.</p>
+          <div class="qa-list">
+            <div class="qa-row"><div class="q">"I've been promoted into people management. Now what?"</div><div class="a">A 90-day coaching engagement to build the muscle the title assumes you have.</div></div>
+            <div class="qa-row"><div class="q">"I'm returning to work after a long break."</div><div class="a">We'll re-architect the story, the skills and the room to walk into.</div></div>
+            <div class="qa-row"><div class="q">"I want to switch industries at 38."</div><div class="a">Then let's audit what's portable, what's missing, and what's actually worth keeping.</div></div>
+          </div>
+          <div class="panel-cta">
+            <a href="#book" class="btn btn-primary">Map my next move
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#services" class="btn btn-ghost">See full service</a>
+          </div>
+        </div>
+        <div class="panel-right">
+          <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1400&q=80" alt="Professional">
+          <div class="panel-bigword">Pro</div>
+          <ul class="panel-bullets">
+            <li>Executive & leadership coaching</li>
+            <li>Career transition</li>
+            <li>Interview & negotiation prep</li>
+            <li>Behavioural assessment</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SCHOOL -->
+      <div class="panel" data-panel="school">
+        <div class="panel-left">
+          <div class="label">Schools & Institutions</div>
+          <h3>Build a counselling cell your students actually use.</h3>
+          <p class="p">From single-day workshops to a full-year embedded counselling and placement program — including TPO certification for your in-house staff.</p>
+          <div class="qa-list">
+            <div class="qa-row"><div class="q">"We need a counsellor on campus, not once a year."</div><div class="a">Our embedded model puts a trained professional inside your calendar.</div></div>
+            <div class="qa-row"><div class="q">"Can you train our existing teachers?"</div><div class="a">Yes — our TPO and Career Counselling certifications are designed exactly for that.</div></div>
+            <div class="qa-row"><div class="q">"Our placements are flat. Why?"</div><div class="a">Usually it's not the students. We'll audit the funnel and rebuild it.</div></div>
+          </div>
+          <div class="panel-cta">
+            <a href="#book" class="btn btn-primary">Request a proposal
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#services" class="btn btn-ghost">See full service</a>
+          </div>
+        </div>
+        <div class="panel-right">
+          <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80" alt="School / Institution">
+          <div class="panel-bigword">Schools</div>
+          <ul class="panel-bullets">
+            <li>Career fairs & workshops</li>
+            <li>Embedded counselling cell</li>
+            <li>Faculty TPO certification</li>
+            <li>Parent–school sessions</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES — PINNED HORIZONTAL SCROLL -->
+<section class="services" id="services">
+  <div class="services-pin">
+    <div class="services-track" id="services-track">
+
+      <div class="svc-intro">
+        <div class="eyebrow">What we do</div>
+        <h2>Four practices. One philosophy of leadership.</h2>
+        <p>We don't sell courses — we work alongside individuals and institutions through specific, time-bound coaching engagements that change behaviour, not just resumes.</p>
+      </div>
+
+      <article class="svc-card">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80" alt="Student Advisory">
+        <div class="roman">I</div>
+        <div class="content">
+          <span class="tag">01 · Advisory</span>
+          <h3>Student Advisory</h3>
+          <p class="desc">Aptitude, interest and personality assessment paired with one-to-one mentoring across Classes 8 through PG — built for clarity, not pressure.</p>
+          <div class="pills"><span>Stream Selection</span><span>Career Mapping</span><span>Abroad Pathways</span></div>
+          <a href="#book" class="explore">Explore practice
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <img src="https://images.unsplash.com/photo-1591703335018-21a85d3ad2b3?auto=format&fit=crop&w=1400&q=80" alt="Parent Advisory">
+        <div class="roman">II</div>
+        <div class="content">
+          <span class="tag">02 · Coaching</span>
+          <h3>Parent Advisory</h3>
+          <p class="desc">Coaching the parent who's coaching the child — from new-parent fundamentals to navigating adolescence, autonomy and the modern career conversation.</p>
+          <div class="pills"><span>New Parents</span><span>Tweens & Teens</span><span>Communication</span></div>
+          <a href="#book" class="explore">Explore practice
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1400&q=80" alt="Corporate Coaching">
+        <div class="roman">III</div>
+        <div class="content">
+          <span class="tag">03 · Executive</span>
+          <h3>Corporate Coaching</h3>
+          <p class="desc">Executive coaching, leadership development, behavioural assessments and bespoke L&D engagements for early-career, mid-career and CXO clients.</p>
+          <div class="pills"><span>ICF Coaching</span><span>Leadership</span><span>Hiring & Assessments</span></div>
+          <a href="#book" class="explore">Explore practice
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="svc-card">
+        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=80" alt="Schools & Institutions">
+        <div class="roman">IV</div>
+        <div class="content">
+          <span class="tag">04 · Programs</span>
+          <h3>Schools & Institutions</h3>
+          <p class="desc">Embedded counselling, career fairs, parent-school workshops and a structured pathway to certify your own faculty as TPOs and Career Counsellors.</p>
+          <div class="pills"><span>Counselling Cell</span><span>Workshops</span><span>TPO Training</span></div>
+          <a href="#book" class="explore">Explore practice
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="svc-progress-wrap">
+      <div class="svc-progress"><div class="bar" id="services-bar"></div></div>
+      <div class="svc-counter" id="services-counter">01 / 04</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="sec founder-sec" id="founder">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="founder-img-wrap" data-reveal>
+        <img src="https://leadersinmaking.com/images/sunita_tank.jpg" alt="Dr. Sunita Tank" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80'">
+        <div class="creds">
+          <div class="c"><strong>ICF Coach</strong>International Coaching Federation</div>
+          <div class="c"><strong>NABET</strong>NABET-certified Lead Auditor</div>
+          <div class="c"><strong>PhD · MBA</strong>Career Counselling & HRD</div>
+          <div class="c"><strong>GoI Letter</strong>Letter of Appreciation</div>
+        </div>
+      </div>
+
+      <div class="founder-body" data-reveal style="--d:120ms">
+        <div class="eyebrow">The founder</div>
+        <h2>Dr. Sunita Tank.<br>The practice behind the practice.</h2>
+        <p>For over two decades, Dr. Sunita Tank has counselled, coached and certified students, parents, professionals and institutions — building what is today one of India's most quietly trusted career and leadership practices.</p>
+        <p>Her work spans aptitude assessment and stream selection for adolescents, executive coaching for senior corporate leaders, and certification programs that have trained hundreds of in-house Training & Placement Officers across schools and colleges.</p>
+        <div class="pull">"All of us are born leaders — if not, can be made one."</div>
+        <p>She is regularly featured by Internshala, Ryan International, RICS, India Parenting and across leading parenting and career publications.</p>
+        <div class="sig">Dr. Sunita Tank<span style="color:var(--ink-mute);margin:0 12px">·</span><strong>Founder, Leaders in Making</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="sec method" id="method">
+  <div class="container">
+    <div class="sec-head">
+      <div data-reveal>
+        <div class="eyebrow">How we work</div>
+        <h2>A four-step method.<br>No tricks, no theatrics.</h2>
+      </div>
+      <div class="right" data-reveal style="--d:80ms">
+        Every engagement we run — student, parent, professional or institutional — moves through the same disciplined arc. Specific to you, predictable to us.
+      </div>
+    </div>
+
+    <div class="method-grid">
+      <div class="step" data-reveal>
+        <div class="stepnum"><span>Step 01</span><span class="duration">20 min · Free</span></div>
+        <h3>Discovery Call</h3>
+        <p>A short conversation to understand what you're trying to solve and whether we're the right fit. No obligation, no fee.</p>
+      </div>
+      <div class="step" data-reveal style="--d:80ms">
+        <div class="stepnum"><span>Step 02</span><span class="duration">90 min · Paid</span></div>
+        <h3>Diagnostic</h3>
+        <p>A structured 90-minute deep-dive with assessments where relevant — at the end you'll have clarity on the problem, not just symptoms.</p>
+      </div>
+      <div class="step" data-reveal style="--d:160ms">
+        <div class="stepnum"><span>Step 03</span><span class="duration">4 – 12 sessions</span></div>
+        <h3>Coaching Engagement</h3>
+        <p>A time-bound engagement with measurable outcomes — typically four to twelve sessions, depending on scope and depth.</p>
+      </div>
+      <div class="step" data-reveal style="--d:240ms">
+        <div class="stepnum"><span>Step 04</span><span class="duration">6-month aftercare</span></div>
+        <h3>Follow-through</h3>
+        <p>Six months of light-touch follow-through to make sure decisions stick, transitions are clean and the work compounds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — PREMIUM SLIDER -->
+<section class="sec tests" id="testimonials">
+  <div class="container">
+    <div class="tests-head">
+      <div class="left" data-reveal>
+        <div class="eyebrow gold">In their words</div>
+        <h2>Twenty years<br>of quiet wins.</h2>
+      </div>
+      <div style="max-width:380px;font-size:14px;line-height:1.6;color:#1c2023;margin-right:auto;margin-left:32px;padding-bottom:6px" data-reveal style="--d:80ms">
+        We don't ask for testimonials. The notes below were written, unprompted, by people we've worked with over the last two decades — students, executives, hiring partners.
+      </div>
+      <div class="right" data-reveal style="--d:160ms">
+        <button class="slider-btn" id="t-prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="slider-btn" id="t-next" aria-label="Next">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="tests-slider">
+      <div class="tests-track" id="tests-track">
+
+        <div class="t-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+          </div>
+          <div class="q">It was an incredible journey with her throughout my placement process. The tips she gave on how to present myself in an interview were extremely beneficial.</div>
+          <div class="person">
+            <div class="avatar">SB</div>
+            <div class="meta">
+              <div class="name">Sona Bansal</div>
+              <div class="role">Data Researcher · S&amp;P Global</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+          </div>
+          <div class="q">Sunita is diligent, organized and goal-oriented. Her personal drive to continuously learn and develop others has impacted many — one can always rely on her.</div>
+          <div class="person">
+            <div class="avatar">SJ</div>
+            <div class="meta">
+              <div class="name">Sanjay Joshi</div>
+              <div class="role">VP HR · MEA & Global Trade, Intertek</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+          </div>
+          <div class="q">I am eternally grateful to Sunita ma'am for helping me develop my personality. Her knowledge about corporate culture helped me crack interviews when I was nervous.</div>
+          <div class="person">
+            <div class="avatar">SB</div>
+            <div class="meta">
+              <div class="name">Sachindra Bhattacharjee</div>
+              <div class="role">Engineering Graduate · LinM Mentee</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+          </div>
+          <div class="q">I shall always remember her readiness to answer any queries, no matter how complex. Her excellent teaching methods made it seem easy to deliver one's best.</div>
+          <div class="person">
+            <div class="avatar">SI</div>
+            <div class="meta">
+              <div class="name">Shrikant Iyer</div>
+              <div class="role">Engineering & Programs Specialist</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+          </div>
+          <div class="q">Dr. Sunita is perseverant, sincere and meticulous. Her warm persona and sharp mind help her build strong relations and tap into lucrative opportunities for her students.</div>
+          <div class="person">
+            <div class="avatar">SA</div>
+            <div class="meta">
+              <div class="name">Sakshi Arya</div>
+              <div class="role">Campus Recruitment · American Express</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="t-card">
+          <div class="quote-mark">"</div>
+          <div class="stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+          </div>
+          <div class="q">You've been a great role model and a perfect mentor. Her soft skills, professional etiquette and experience are truly commendable.</div>
+          <div class="person">
+            <div class="avatar">AG</div>
+            <div class="meta">
+              <div class="name">Ankit Goel</div>
+              <div class="role">Practitioner Sales Manager · Wipro India</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tests-dots" id="tests-dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="sec partners" id="partners">
+  <div class="container">
+    <div class="partners-head" data-reveal>
+      <div class="eyebrow">Featured & trusted by</div>
+      <h2>Twenty years of quiet partnerships.</h2>
+      <p>From schools and industry bodies to media platforms — institutions that have invited Dr. Sunita Tank and Leaders in Making to train, write, advise and certify.</p>
+    </div>
+
+    <div class="marquee-wrap" data-reveal style="--d:120ms">
+      <div class="marquee">
+        <div class="logo-card"><img src="https://leadersinmaking.com/images/LeadersInMaking-Internshala.jpg" alt="Internshala" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=&quot;txt-fallback&quot;>Internshala</span>')"></div>
+        <div class="logo-card"><img src="https://leadersinmaking.com/images/LeadersInMaking-IndiaParenting.jpg" alt="India Parenting" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=&quot;txt-fallback&quot;>India Parenting</span>')"></div>
+        <div class="logo-card"><img src="https://leadersinmaking.com/images/LeadersInMaking-RyanInternational.jpg" alt="Ryan International" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=&quot;txt-fallback&quot;>Ryan International</span>')"></div>
+        <div class="logo-card"><img src="https://leadersinmaking.com/images/rics.jpg" alt="RICS" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=&quot;txt-fallback&quot;>RICS</span>')"></div>
+        <div class="logo-card"><span class="txt-fallback">NABET</span></div>
+        <div class="logo-card"><span class="txt-fallback">ICF</span></div>
+        <div class="logo-card"><span class="txt-fallback">GoI · NSDM</span></div>
+        <!-- Duplicate set for infinite loop -->
+        <div class="logo-card"><img src="https://leadersinmaking.com/images/LeadersInMaking-Internshala.jpg" alt="Internshala" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=&quot;txt-fallback&quot;>Internshala</span>')"></div>
+        <div class="logo-card"><img src="https://leadersinmaking.com/images/LeadersInMaking-IndiaParenting.jpg" alt="India Parenting" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=&quot;txt-fallback&quot;>India Parenting</span>')"></div>
+        <div class="logo-card"><img src="https://leadersinmaking.com/images/LeadersInMaking-RyanInternational.jpg" alt="Ryan International" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=&quot;txt-fallback&quot;>Ryan International</span>')"></div>
+        <div class="logo-card"><img src="https://leadersinmaking.com/images/rics.jpg" alt="RICS" onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('beforeend','<span class=&quot;txt-fallback&quot;>RICS</span>')"></div>
+        <div class="logo-card"><span class="txt-fallback">NABET</span></div>
+        <div class="logo-card"><span class="txt-fallback">ICF</span></div>
+        <div class="logo-card"><span class="txt-fallback">GoI · NSDM</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="sec certs" id="certs">
+  <div class="container">
+    <div class="sec-head">
+      <div data-reveal>
+        <div class="eyebrow">Train with us</div>
+        <h2>Become a counsellor.<br>Or build the cell yourself.</h2>
+      </div>
+      <div class="right" data-reveal style="--d:80ms">
+        Two structured certification tracks for educators, counsellors and HR practitioners who want to deliver this work themselves — designed and delivered by Dr. Sunita Tank.
+      </div>
+    </div>
+
+    <div class="certs-grid">
+      <div class="cert" data-reveal>
+        <div class="cert-media">
+          <div class="badge">Certification I</div>
+          <div class="pill">Practitioner</div>
+          <img src="https://leadersinmaking.com/images/lim-gujarat.jpg" alt="Career Counselling Certification — Government of Gujarat partnership" onerror="this.style.display='none'; this.parentElement.style.background='var(--brand-grad)';">
+        </div>
+        <div class="cert-body">
+          <h3>Career Counselling Certification</h3>
+          <p>A practitioner-led program covering aptitude assessment, stream guidance, college pathways and adolescent psychology — built for educators and counsellors who want to advise students confidently.</p>
+          <div class="specs">
+            <div class="s"><strong>Format</strong><span>Hybrid</span></div>
+            <div class="s"><strong>Duration</strong><span>12 weeks</span></div>
+            <div class="s"><strong>Level</strong><span>Practitioner</span></div>
+          </div>
+          <a href="#lead" class="cert-cta">
+            Enrol your team
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="cert" data-reveal style="--d:120ms">
+        <div class="cert-media">
+          <div class="badge">Certification II</div>
+          <div class="pill">Institutional</div>
+          <img src="https://leadersinmaking.com/images/lim-internshala.jpg" alt="TPO Certification — Internshala partnership" onerror="this.style.display='none'; this.parentElement.style.background='var(--brand-grad)';">
+        </div>
+        <div class="cert-body">
+          <h3>TPO Certification</h3>
+          <p>A structured certification for in-house Training &amp; Placement Officers — covering recruiter outreach, employability profiling, mock interviews, internship pipelines and placement analytics.</p>
+          <div class="specs">
+            <div class="s"><strong>Format</strong><span>In-person + Online</span></div>
+            <div class="s"><strong>Duration</strong><span>8 weeks</span></div>
+            <div class="s"><strong>Level</strong><span>Institutional</span></div>
+          </div>
+          <a href="#lead" class="cert-cta">
+            Talk to admissions
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq" id="faq">
+  <div class="container">
+    <div class="sec-head" style="margin-bottom:48px">
+      <div data-reveal>
+        <div class="eyebrow">Honest answers</div>
+        <h2>Things you might be wondering.</h2>
+      </div>
+      <div class="right" data-reveal style="--d:80ms">
+        If your question isn't here, write to <a href="mailto:info@leadersinmaking.com" style="color:var(--brand);text-decoration:underline">info@leadersinmaking.com</a> — a senior counsellor will reply within one working day.
+      </div>
+    </div>
+
+    <div class="faq-grid" data-reveal>
+      <details class="faq-item">
+        <summary>How is this different from a typical career counselling session?
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="faq-body">Most career counselling stops at an aptitude test and a list. We start there — and then sit with the actual decisions: which college, which stream, which job, which conversation with your parents. The work is closer to coaching than counselling.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you only work with students, or also adults?
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="faq-body">Both. Roughly half our practice is corporate coaching — executives, mid-career professionals returning to work, founders. The other half is split between students, parents and institutional programs.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What does an engagement typically cost?
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="faq-body">It depends on scope. A single diagnostic session is priced very differently from a 12-session executive engagement or an institutional partnership. We share specific numbers after the free discovery call — once we know what we're solving.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you offer sessions online?
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="faq-body">Yes — most of our 1:1 work runs over secure video. In-person sessions are available in New Delhi by appointment, and on-campus engagements for schools and corporates.</div>
+      </details>
+      <details class="faq-item">
+        <summary>I'm certifying my school's counsellors — how does that work?
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="faq-body">We have two flagship certifications — Career Counselling and TPO — that we deliver in cohorts. Schools and colleges typically enrol 3–10 faculty members per cycle. We can also build a custom version for your institution.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How quickly will you respond to my form?
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="faq-body">Within one working day — usually the same evening. A senior counsellor from the team reviews every form personally. We don't pass leads to a call centre.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD FORM -->
+<section class="sec lead" id="book">
+  <div class="container">
+    <div class="lead-grid">
+      <div class="lead-left" data-reveal>
+        <div class="eyebrow light">Book a Discovery Call</div>
+        <h2>Twenty minutes is a small price for <span class="accent">a much shorter decade.</span></h2>
+        <p>Tell us a little about who's writing and what you're trying to solve. A senior counsellor from the team will respond within one working day — usually the same evening.</p>
+
+        <div class="lead-meta">
+          <div class="m">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div>
+              <div class="lbl">Call us</div>
+              <div class="val"><a href="tel:+919870435599">+91 98704 35599</a></div>
+            </div>
+          </div>
+          <div class="m">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div>
+              <div class="lbl">Email</div>
+              <div class="val"><a href="mailto:info@leadersinmaking.com">info@leadersinmaking.com</a></div>
+            </div>
+          </div>
+          <div class="m">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <div class="lbl">Practice</div>
+              <div class="val">New Delhi, India · By appointment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal style="--d:120ms">
+        <div class="form-card">
+          <div id="form-body">
+            <div class="form-progress">
+              <span id="step-text">Step 1 of 3</span>
+              <div class="bar"><div class="bar-fill" id="form-bar"></div></div>
+            </div>
+
+            <div class="field" style="margin-bottom:24px">
+              <label>I am a…</label>
+              <div class="role-grid">
+                <button type="button" class="role-pill active" data-role="Student"><span class="dot"></span>Student</button>
+                <button type="button" class="role-pill" data-role="Parent"><span class="dot"></span>Parent</button>
+                <button type="button" class="role-pill" data-role="Professional"><span class="dot"></span>Professional</button>
+                <button type="button" class="role-pill" data-role="School"><span class="dot"></span>School / Institution</button>
+              </div>
+            </div>
+
+            <!-- Conditional fields per role -->
+            <div class="conditional show" data-when="Student">
+              <div class="cond-hint">A few quick details so we can match you with the right counsellor.</div>
+              <div class="field-row">
+                <div class="field"><label>Current class / year</label><input type="text" name="class" placeholder="e.g. Class 11 Science"></div>
+                <div class="field"><label>Looking at</label>
+                  <select name="goal"><option>Stream selection</option><option>College shortlisting</option><option>Study abroad</option><option>Career mapping</option></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="conditional" data-when="Parent">
+              <div class="cond-hint">Tell us about the child — we'll tailor the first conversation around them, not a script.</div>
+              <div class="field-row">
+                <div class="field"><label>Child's age</label><input type="text" name="childage" placeholder="e.g. 15"></div>
+                <div class="field"><label>What's on your mind</label>
+                  <select name="parentgoal"><option>Streams & subjects</option><option>Communication</option><option>Career conversation</option><option>Behaviour & autonomy</option></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="conditional" data-when="Professional">
+              <div class="cond-hint">A senior coach will be matched based on your career stage and goal.</div>
+              <div class="field-row">
+                <div class="field"><label>Years of experience</label><input type="text" name="exp" placeholder="e.g. 12 years"></div>
+                <div class="field"><label>Coaching focus</label>
+                  <select name="profgoal"><option>Executive coaching</option><option>Career transition</option><option>Returning to work</option><option>Leadership development</option></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="conditional" data-when="School">
+              <div class="cond-hint">Institutional engagements typically run as full-year programs or quarterly workshops.</div>
+              <div class="field-row">
+                <div class="field"><label>Institution name</label><input type="text" name="institution" placeholder="School / College name"></div>
+                <div class="field"><label>Looking for</label>
+                  <select name="instgoal"><option>Embedded counselling cell</option><option>TPO certification</option><option>Workshops & career fairs</option><option>Parent–school sessions</option></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field"><label>Your name</label><input type="text" id="f-name" placeholder="Full name" required></div>
+              <div class="field"><label>Phone</label><input type="tel" id="f-phone" placeholder="+91" required></div>
+            </div>
+
+            <div class="field"><label>Email</label><input type="email" id="f-email" placeholder="you@example.com" required></div>
+
+            <div class="field"><label>What are you hoping to solve? (optional)</label><textarea id="f-msg" placeholder="A sentence or two is plenty."></textarea></div>
+
+            <div class="form-foot">
+              <div class="hint">We respond within 1 working day. Your details stay private.</div>
+              <button type="button" class="btn btn-yellow" id="f-submit">Request my Discovery Call
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-success" id="form-success">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <h3>Thank you, <span id="success-name">friend</span>.</h3>
+            <p>Your request has been received. A senior counsellor will reach out to <strong id="success-email" style="color:var(--yellow)"></strong> within one working day — usually the same evening.</p>
+            <a href="#top" class="btn btn-glass">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand-logo"><img src="https://leadersinmaking.com/images/LeadersInMaking_logo.svg" alt="Leaders in Making"></a>
+        <p>A premium career counselling, coaching and certification practice — led by Dr. Sunita Tank from New Delhi since 2002.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Practice</h4>
+        <ul>
+          <li><a href="#audience">For Students</a></li>
+          <li><a href="#audience">For Parents</a></li>
+          <li><a href="#audience">For Professionals</a></li>
+          <li><a href="#audience">For Institutions</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#founder">The Founder</a></li>
+          <li><a href="#method">Our Method</a></li>
+          <li><a href="#certs">Certifications</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919870435599">+91 98704 35599</a></li>
+          <li><a href="mailto:info@leadersinmaking.com">info@leadersinmaking.com</a></li>
+          <li>New Delhi, India</li>
+          <li><a href="#book">Book a Session</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <div>© 2002–2026 Leaders in Making · All rights reserved</div>
+      <div class="socials">
+        <a href="https://youtube.com/c/LeadersInMaking" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.5a4 4 0 0 0-2.8-2.8C18.6 3 12 3 12 3s-6.6 0-8.7.7A4 4 0 0 0 .5 6.5C0 8.6 0 12 0 12s0 3.4.5 5.5a4 4 0 0 0 2.8 2.8c2.1.7 8.7.7 8.7.7s6.6 0 8.7-.7a4 4 0 0 0 2.8-2.8C24 15.4 24 12 24 12s0-3.4-.5-5.5zM9.6 15.5v-7l6.3 3.5-6.3 3.5z"/></svg></a>
+        <a href="https://facebook.com/leadersinmaking" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 5 3.7 9.1 8.4 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7C18.3 21.1 22 17 22 12z"/></svg></a>
+        <a href="https://instagram.com/leadersinmaking" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.4A4 4 0 1 1 12.6 8 4 4 0 0 1 16 11.4z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://linkedin.com/company/leaderinmaking" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.3A1.8 1.8 0 1 1 8.3 6.5 1.8 1.8 0 0 1 6.5 8.3zM19 19h-3v-4.7c0-1.1-.4-1.8-1.4-1.8a1.5 1.5 0 0 0-1.4 1 1.9 1.9 0 0 0-.1.7V19h-3v-9h3v1.3a3 3 0 0 1 2.7-1.5c2 0 3.3 1.3 3.3 4z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919870435599" class="wa-float" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0 11.9 11.9 0 0 0 1.7 17.7L0 24l6.4-1.7A11.9 11.9 0 0 0 12 24 11.9 11.9 0 0 0 20.5 3.5zM12 22a9.9 9.9 0 0 1-5.1-1.4l-.4-.2-3.8 1 1-3.7-.2-.4A9.9 9.9 0 1 1 12 22zm5.4-7.4c-.3-.1-1.7-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.1 8.1 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.5a2.7 2.7 0 0 0 .3-.4.5.5 0 0 0 0-.5c-.1-.1-.7-1.6-.9-2.2s-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.3 3.3 0 0 0-1 2.4 5.7 5.7 0 0 0 1.2 3 13.1 13.1 0 0 0 5 4.4 16.8 16.8 0 0 0 1.7.6 4 4 0 0 0 1.8.1 3 3 0 0 0 2-1.4 2.4 2.4 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+
+<script>
+/* ============================================================
+   SCRIPTS
+   ============================================================ */
+(function(){
+  'use strict';
+
+  // ---- Nav scroll state
+  const nav = document.getElementById('nav');
+  const onScroll = () => {
+    if (window.scrollY > 24) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ---- Mobile drawer
+  const drawer = document.getElementById('mobile-drawer');
+  const open = document.getElementById('open-menu');
+  const close = document.getElementById('close-menu');
+  if (open) open.addEventListener('click', () => { drawer.classList.add('open'); document.body.style.overflow = 'hidden'; });
+  if (close) close.addEventListener('click', () => { drawer.classList.remove('open'); document.body.style.overflow = ''; });
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { drawer.classList.remove('open'); document.body.style.overflow = ''; }));
+
+  // ---- Audience tabs
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(t => {
+    t.addEventListener('click', () => {
+      const key = t.dataset.tab;
+      tabs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      panels.forEach(p => {
+        if (p.dataset.panel === key) p.classList.add('active');
+        else p.classList.remove('active');
+      });
+    });
+  });
+
+  // ---- Intersection reveal
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '-8% 0px -8% 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('in'));
+  }
+
+  // ---- GSAP services pinned horizontal scroll
+  if (window.gsap && window.ScrollTrigger && window.innerWidth >= 1024) {
+    gsap.registerPlugin(ScrollTrigger);
+    const track = document.getElementById('services-track');
+    const bar = document.getElementById('services-bar');
+    const counter = document.getElementById('services-counter');
+    if (track) {
+      const totalScroll = () => track.scrollWidth - window.innerWidth;
+      const st = ScrollTrigger.create({
+        trigger: '.services-pin',
+        start: 'top top',
+        end: () => '+=' + (track.scrollWidth - window.innerWidth + 100),
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: self => {
+          const x = -self.progress * totalScroll();
+          gsap.set(track, { x });
+          if (bar) bar.style.width = Math.max(8, self.progress * 100) + '%';
+          if (counter) {
+            const idx = Math.min(4, Math.max(1, Math.ceil(self.progress * 4) || 1));
+            counter.textContent = String(idx).padStart(2,'0') + ' / 04';
+          }
+        }
+      });
+      window.addEventListener('resize', () => { ScrollTrigger.refresh(); });
+    }
+  }
+
+  // ---- Testimonials slider
+  const ttrack = document.getElementById('tests-track');
+  const tprev = document.getElementById('t-prev');
+  const tnext = document.getElementById('t-next');
+  const tdots = document.getElementById('tests-dots');
+  if (ttrack) {
+    const cards = ttrack.querySelectorAll('.t-card');
+    const total = cards.length;
+    let perView = 3;
+    let idx = 0;
+
+    const recalc = () => {
+      if (window.innerWidth < 640) perView = 1;
+      else if (window.innerWidth < 1024) perView = 2;
+      else perView = 3;
+    };
+    recalc();
+
+    const buildDots = () => {
+      tdots.innerHTML = '';
+      const pages = Math.max(1, total - perView + 1);
+      for (let i = 0; i < pages; i++) {
+        const d = document.createElement('button');
+        d.className = 'tdot' + (i === idx ? ' active' : '');
+        d.addEventListener('click', () => { idx = i; render(); });
+        tdots.appendChild(d);
+      }
+    };
+
+    const render = () => {
+      const maxIdx = total - perView;
+      if (idx < 0) idx = 0;
+      if (idx > maxIdx) idx = maxIdx;
+      const card = cards[0];
+      const cardW = card.getBoundingClientRect().width + 28;
+      ttrack.style.transform = 'translateX(' + (-idx * cardW) + 'px)';
+      tdots.querySelectorAll('.tdot').forEach((d,i) => d.classList.toggle('active', i === idx));
+      tprev.disabled = idx <= 0;
+      tnext.disabled = idx >= maxIdx;
+    };
+
+    if (tprev) tprev.addEventListener('click', () => { idx--; render(); });
+    if (tnext) tnext.addEventListener('click', () => { idx++; render(); });
+
+    window.addEventListener('resize', () => {
+      const prev = perView;
+      recalc();
+      if (prev !== perView) { idx = 0; buildDots(); }
+      render();
+    });
+
+    buildDots();
+    render();
+
+    // Autoplay
+    let auto = setInterval(() => {
+      const maxIdx = total - perView;
+      idx = idx >= maxIdx ? 0 : idx + 1;
+      render();
+    }, 6000);
+    ttrack.addEventListener('mouseenter', () => clearInterval(auto));
+    ttrack.addEventListener('mouseleave', () => {
+      auto = setInterval(() => {
+        const maxIdx = total - perView;
+        idx = idx >= maxIdx ? 0 : idx + 1;
+        render();
+      }, 6000);
+    });
+  }
+
+  // ---- Dynamic form
+  const pills = document.querySelectorAll('.role-pill');
+  const conds = document.querySelectorAll('.conditional');
+  const stepText = document.getElementById('step-text');
+  const formBar = document.getElementById('form-bar');
+
+  const updateConds = (role) => {
+    conds.forEach(c => {
+      if (c.dataset.when === role) c.classList.add('show');
+      else c.classList.remove('show');
+    });
+  };
+
+  pills.forEach(p => {
+    p.addEventListener('click', () => {
+      pills.forEach(x => x.classList.remove('active'));
+      p.classList.add('active');
+      updateConds(p.dataset.role);
+      if (stepText) stepText.textContent = 'Step 2 of 3';
+      if (formBar) formBar.style.width = '66%';
+    });
+  });
+
+  // Track form progress as user fills
+  const fname = document.getElementById('f-name');
+  const fphone = document.getElementById('f-phone');
+  const femail = document.getElementById('f-email');
+  const progressCheck = () => {
+    const filled = [fname, fphone, femail].filter(x => x && x.value.trim().length > 2).length;
+    if (filled >= 2) {
+      if (stepText) stepText.textContent = 'Step 3 of 3';
+      if (formBar) formBar.style.width = '100%';
+    }
+  };
+  [fname, fphone, femail].forEach(el => el && el.addEventListener('input', progressCheck));
+
+  // Submit
+  const submit = document.getElementById('f-submit');
+  const formBody = document.getElementById('form-body');
+  const formSuccess = document.getElementById('form-success');
+  const successName = document.getElementById('success-name');
+  const successEmail = document.getElementById('success-email');
+
+  if (submit) {
+    submit.addEventListener('click', () => {
+      const name = fname.value.trim();
+      const phone = fphone.value.trim();
+      const email = femail.value.trim();
+      const emailOk = /^\S+@\S+\.\S+$/.test(email);
+      const phoneOk = /^[0-9 +\-()]{8,}$/.test(phone);
+
+      if (!name) { fname.focus(); fname.style.borderBottomColor = '#DF80B4'; return; }
+      if (!phoneOk) { fphone.focus(); fphone.style.borderBottomColor = '#DF80B4'; return; }
+      if (!emailOk) { femail.focus(); femail.style.borderBottomColor = '#DF80B4'; return; }
+
+      successName.textContent = name.split(' ')[0];
+      successEmail.textContent = email;
+      formBody.style.display = 'none';
+      formSuccess.classList.add('show');
+    });
+  }
+
+  // Soft active nav highlight
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = ['audience','services','founder','method','certs','faq'];
+  if ('IntersectionObserver' in window) {
+    const so = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(id => { const el = document.getElementById(id); if (el) so.observe(el); });
+  }
+
+})();
+</script>
+
+</body>
+</html>
